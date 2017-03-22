@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.4
+FROM alpine:3.5
 
 MAINTAINER Michael Ries <michael@riesd.com>
 
@@ -6,8 +6,9 @@ MAINTAINER Michael Ries <michael@riesd.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2016-09-30 \
+ENV REFRESHED_AT=2017-02-21 \
     LANG=en_US.UTF-8 \
+    HOME=/opt/app \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
@@ -17,8 +18,7 @@ RUN \
     adduser -s /bin/sh -u 1001 -G root -h ${HOME} -S -D default && \
     chown -R 1001:0 ${HOME} && \
     echo "@edge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk --no-cache upgrade && \
-    apk-install ca-certificates \
+    apk add --no-cache ca-certificates \
       erlang@edge erlang-dev@edge erlang-kernel@edge erlang-hipe@edge erlang-compiler@edge \
       erlang-stdlib@edge erlang-erts@edge erlang-syntax-tools@edge erlang-sasl@edge \
       erlang-crypto@edge erlang-public-key@edge erlang-ssl@edge erlang-tools@edge \
