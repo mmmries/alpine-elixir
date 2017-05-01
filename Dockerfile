@@ -6,7 +6,7 @@ MAINTAINER Michael Ries <michael@riesd.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2017-03-22 \
+ENV REFRESHED_AT=2017-05-01 \
     LANG=en_US.UTF-8 \
     HOME=/root \
     PROJECT_ROOT=/opt/app \
@@ -18,7 +18,7 @@ RUN \
     mkdir -p ${PROJECT_ROOT} && \
     adduser -s /bin/sh -u 1001 -G root -h ${HOME} -S -D default && \
     chown -R 1001:0 ${PROJECT_ROOT} && \
-    echo "@edge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk add --no-cache \
       erlang@edge erlang-dev@edge erlang-kernel@edge erlang-hipe@edge erlang-compiler@edge \
       erlang-stdlib@edge erlang-erts@edge erlang-syntax-tools@edge erlang-sasl@edge \
