@@ -6,7 +6,7 @@ MAINTAINER Michael Ries <michael@riesd.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2017-07-10 \
+ENV REFRESHED_AT=2017-08-23 \
     LANG=en_US.UTF-8 \
     HOME=/root \
     PROJECT_ROOT=/opt/app \
