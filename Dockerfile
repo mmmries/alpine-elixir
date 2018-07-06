@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 MAINTAINER Michael Ries <michael@riesd.com>
 
@@ -6,7 +6,7 @@ MAINTAINER Michael Ries <michael@riesd.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2018-03-21 \
+ENV REFRESHED_AT=2018-07-06 \
     LANG=en_US.UTF-8 \
     HOME=/root \
     PROJECT_ROOT=/opt/app \
@@ -20,6 +20,7 @@ RUN \
     chown -R 1001:0 ${PROJECT_ROOT} && \
     echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk add --no-cache \
+      libressl2.7-libcrypto@edge \
       erlang@edge erlang-dev@edge erlang-kernel@edge erlang-hipe@edge erlang-compiler@edge \
       erlang-stdlib@edge erlang-erts@edge erlang-syntax-tools@edge erlang-sasl@edge \
       erlang-crypto@edge erlang-public-key@edge erlang-ssl@edge erlang-tools@edge \
