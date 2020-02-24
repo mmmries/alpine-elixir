@@ -1,3 +1,5 @@
+> This project has fallen out of use. I highly recommend the hexpm's teams images https://elixirforum.com/t/yet-another-elixir-and-erlang-docker-image/28740
+
 # alpine-elixir
 
 This is a smallish docker container that contains the bare-minimum to run an elixir application.
